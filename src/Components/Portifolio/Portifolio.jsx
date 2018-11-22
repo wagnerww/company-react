@@ -28,6 +28,7 @@ class Portifolio extends Component {
                     <h2>Portfolio</h2><br />
                     <h4>What we have created</h4>
                     <div className='row text-center '>
+                    
                         {
                             Object.keys(this.state.portifolio).map(res => {
                                 return <PortifolioItem key={res} conteudo={this.state.portifolio[res]} />
