@@ -14,4 +14,8 @@ const conn = {
 const app = firebase.initializeApp(conn);
 const ConfigFirebase = Rebase.createClass(app.database());
 
+export const auth = app.auth();
+
+export const storage = app.storage();
+
 export default ConfigFirebase;

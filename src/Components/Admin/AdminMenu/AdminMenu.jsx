@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const AdminMenu = props => {
     return (
@@ -6,7 +7,7 @@ const AdminMenu = props => {
             <a href="#" className="list-group-item list-group-item-action active">
                 Selecione uma opção
             </a>
-            <a href="#" className="list-group-item list-group-item-action">Portifolio</a>
+            <Link to="admin/portifolio" className="list-group-item list-group-item-action">Portifolio</Link>
 
         </div>
     )
