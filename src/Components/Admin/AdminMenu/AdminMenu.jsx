@@ -7,7 +7,7 @@ const AdminMenu = props => {
             <a href="#" className="list-group-item list-group-item-action active">
                 Selecione uma opção
             </a>
-            <Link to="admin/portifolio" className="list-group-item list-group-item-action">Portifolio</Link>
+            <Link to="/admin/portifolio" className="list-group-item list-group-item-action">Portifolio</Link>
 
         </div>
     )

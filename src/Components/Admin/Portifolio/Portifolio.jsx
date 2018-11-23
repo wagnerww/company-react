@@ -5,11 +5,19 @@ class PortifolioAdmin extends Component {
     constructor(props) {
         super(props)
 
+        this.state = {
+            asEstaGravando:false
+        }
+
         this.gravarRepositorio = this.gravarRepositorio.bind(this);
     }
 
     gravarRepositorio = (e) => {
         console.log('gravarRepositorio ', this.imagem.value);
+
+        this.setState({
+            asEstaGravando:true
+        })
 
         const arquivo = this.imagem.files[0];
         console.log('arquivo ', arquivo)
@@ -29,6 +37,9 @@ class PortifolioAdmin extends Component {
                 portifolioDB.imagem = url;
                 fb.push('portifolio', { data: portifolioDB });
             });
+            this.setState({
+                asEstaGravando:false
+            })
         });
 
 
@@ -37,6 +48,14 @@ class PortifolioAdmin extends Component {
     }
 
     render() {
+        if(this.state.asEstaGravando){
+            return (
+                <div className="Container">
+                    <p><span className="glyphicon glyphicon-refresh"></span>Aguarde</p>
+                </div>
+            )
+        }
+
         return (
             <div style={{ padding: '30px' }}>
                 <h2>Portifolio administrativo</h2>

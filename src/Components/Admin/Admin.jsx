@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
 import AdminMenu from './AdminMenu/AdminMenu';
-import {Route, Redirect} from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import PortifolioAdmin from './Portifolio/Portifolio';
-import {auth} from '../../common/ConnFirebase';
+import { auth } from '../../common/ConnFirebase';
 
 class Admin extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            asLogando:false,
-            asAutenticado:false,
-            user:null
+            asLogando: true,
+            asAutenticado: false,
+            user: null
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         auth.onAuthStateChanged(user => {
             console.log('logado ', user);
             this.setState({
-                asLogando:false,
+                asLogando: false,
                 asAutenticado: true,
                 user
             })
@@ -27,15 +27,20 @@ class Admin extends Component {
     }
 
     render() {
-        if(this.state.asLogando){
-            return <p>aguarde....</p>
+        if (this.state.asLogando) {
+            return (
+                <div className="Container">
+                    <p><span className="glyphicon glyphicon-refresh"></span>Aguarde</p>
+                </div>
+            )
         }
 
-        if(!this.state.asAutenticado){
+        if (!this.state.asAutenticado) {
             console.log('nao logado');
             return <Redirect to='/login' />
         }
 
+        
         return (
             <div>
                 <h2>Area administrativa</h2>
